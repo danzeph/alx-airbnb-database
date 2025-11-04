@@ -28,7 +28,7 @@ Third Normal Form(3NF)
   1. Met 2NF
   2. No transitive dependencies: non-key attributes does not depend on other non-key attributes
 
-Analysis 
+Analysis on the 3NF
   1. For User Table attributes depend only on the user_id.
   2. For the Property Table, host_id references User and all otherr attributs describe the property itself.
   3. For the Booking Table, table the total_price might be a derived attribute but kept stored in the table and justified and not a 3NF violation.
