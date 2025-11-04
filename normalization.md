@@ -38,8 +38,12 @@ Analysis
   All tables satisfy 3NF.
 
 Verification of Referential Integrity
- =
- dkdkd
+  1. Property.host_id and User.user_id ensures each property belongs to a valid host.
+  2. Booking.property and Property.property_id ensures each booking is for a valid property.
+  3. Payment.booking_id and Booking.booking_id ensures all bookings a paid for.
+  4. Review.property_id and Property.property_id makes sure a review is on a valid property.
+  5. Review.user_id and User.user_id makes sure it is a valid User who makes a review.
+  6. Message.sender_id, Message.recipient_id and User.user_id validates and ensures smooth message exchange between Users(as a sender and as a receiver).
   
   
       
