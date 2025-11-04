@@ -36,6 +36,10 @@ Analysis
   5. For the Review Table, attributes depend only on the review_id.
   6. For the Message Table. attributes depend only on the message_id
   All tables satisfy 3NF.
+
+Verification of Referential Integrity
+ =
+ dkdkd
   
   
       
