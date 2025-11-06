@@ -1,3 +1,4 @@
+
 #  Normalization of the alx-airbnb-database
 
 Normalization is the process of structuring a relational database to minimize redudancy and improve data integrity.
@@ -44,7 +45,9 @@ Verification of Referential Integrity
   4. Review.property_id and Property.property_id makes sure a review is on a valid property.
   5. Review.user_id and User.user_id makes sure it is a valid User who makes a review.
   6. Message.sender_id, Message.recipient_id and User.user_id validates and ensures smooth message exchange between Users(as a sender and as a receiver).
-  
+
+
+#   Done  
   
       
      
