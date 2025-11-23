@@ -1,1 +1,1 @@
-# Correlated and Non-Correlated subqueries
+# Advanced Querying
