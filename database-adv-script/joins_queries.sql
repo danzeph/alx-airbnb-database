@@ -11,7 +11,8 @@ SELECT
     b.date
 FROM booking b
 INNER JOIN users u
-ON b.user_id = u.user_id;
+ON b.user_id = u.user_id
+ORDER BY p.property_id;
 
 
 -- LEFT JOIN
