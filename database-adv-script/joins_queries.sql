@@ -37,7 +37,7 @@ SELECT
     b.property_id
 FROM users u
 LEFT JOIN booking b
-ON u.user_id = b.user_id;
+ON u.user_id = b.user_id
 
 UNION
 
@@ -47,5 +47,4 @@ SELECT
     b.property_id
 FROM users u
 RIGHT JOIN booking b;
-
 ON u.user_id = b.user_id;
