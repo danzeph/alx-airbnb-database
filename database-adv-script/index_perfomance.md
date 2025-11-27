@@ -20,15 +20,67 @@
 
 
 
-## Query Perfomance Measurement (Before and After)
-1. Query one: 
-  `EXPLAIN SELECT * FROM booking WHERE property_id = 101;`
+### Query Perfomance Measurement (Before and After)
+1. Filter Users by Role:
+  ```  SQL
+EXPLAIN SELECT * FROM users WHERE role = 'guest';
+  ```
   * Before Index
-    + Full table scan
-    + rows ≈ 14 (depends on dataset)
-  * After Index
-3. Query tow
-4. Query three
-5. 
-  `EXPLAIN SELECT * FROM booking WHERE property_id = 101;`
+     + Full table scan
+     + Rows ≈ 10
+     + Extra: Using where
+
+  * After Index (`idx_users_role`)
+    + Index lookup on `role`
+    + Fewer rows scanned
+    + Faster filtering
+
+  
+### 2. Filter Properties by Location
+  ```  SQL
+    EXPLAIN SELECT * FROM property WHERE location = 'Accra';
+  ```
+  * Before Index
+     + Full table scan
+     + Rows ≈ 12
+     + Extra: Using where
+
+  * After Index (`idx_property_location`)
+    + Index lookup on `location`
+    + Only matching rows scanned
+    + Faster query execution
+
+
+      
+### 3. Filter Bookings by Start date
+  ```   SQL
+    EXPLAIN SELECT * FROM booking WHERE start_date = '2025-01-10';
+  ```
+  * Before Index
+     + Full table scan
+     + Rows ≈ 14
+     + Extra: Using where
+
+  * After Index (`idx_booking_start_date`)
+    + Index lookup on `start_date`
+    + Only matching rows scanned
+    + Faster query execution
+
+
+### 4. Filter Bookings by Status
+  ```   SQL
+    EXPLAIN SELECT * FROM booking WHERE status = 'confirmed';
+  ```
+  * Before Index
+     + Full table scan
+     + Rows ≈ 14
+     + Extra: Using where
+
+  * After Index (`idx_booking_status`)
+    + Index lookup on `status`
+    + Only matching rows scanned
+    + Much faster filtering
+
+
+
   
