@@ -5,7 +5,7 @@ CREATE INDEX inx_users_role ON users(created_at);
 
 
 -- Indexes on the property table
---  property_id primary is automatically indexed
+-- property_id primary is automatically indexed
 CREATE INDEX idx_property_location ON property(location);
 CREATE INDEX idx_property_pricepernight ON property(pricepernight);
 
