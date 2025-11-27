@@ -1,19 +1,15 @@
 -- INNER JOIN
--- Retrieve all bookings and the respective users 
--- who made those bookings.
+-- Retrieve all bookings and the respective users who made those bookings.
 -- Only bookings with matching users will appear.
 
 SELECT 
     b.booking_id, 
-    b.user_id, 
-    u.name AS user_name, 
+    b.user_id,
     b.property_id, 
-    b.date
 FROM booking b
 INNER JOIN users u
-ON b.user_id = u.user_id
-ORDER BY p.property_id;
-
+    ON b.user_id = u.user_id
+ORDER BY b.property_id;
 
 -- LEFT JOIN
 -- Retrieve all properties and their reviews,
@@ -26,7 +22,7 @@ SELECT
     r.comment
 FROM property p
 LEFT JOIN review r
-ON p.property_id = r.property_id;
+    ON p.property_id = r.property_id;
 
 
 
@@ -37,22 +33,18 @@ ON p.property_id = r.property_id;
 
 SELECT 
     u.user_id, 
-    u.name AS user_name, 
     b.booking_id, 
-    b.property_id, 
-    b.date
+    b.property_id
 FROM users u
 LEFT JOIN booking b
-ON u.user_id = b.user_id
+ON u.user_id = b.user_id;
 
 UNION
 
 SELECT 
     u.user_id, 
-    u.name AS user_name, 
     b.booking_id, 
-    b.property_id, 
-    b.date
+    b.property_id
 FROM users u
 RIGHT JOIN booking b;
 
