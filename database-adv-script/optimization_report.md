@@ -9,3 +9,8 @@
 
 ## Optimization Recommendations
 1. I created indexes on `status`, `start_price` and `end_date`.
+2. I mande sure only necessary columns were selected.
+
+## Performance after refactoring
+1. Low cost and low execution time meaning less memory usage
+
