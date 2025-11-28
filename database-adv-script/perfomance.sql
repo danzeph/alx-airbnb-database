@@ -21,7 +21,8 @@ SELECT
 FROM booking b
 JOIN users u ON b.user_id = u.user_id
 JOIN property p ON b.property_id = p.property_id
-LEFT JOIN payment pm ON b.booking_id = pm.booking_id;
+LEFT JOIN payment pm ON b.booking_id = pm.booking_id
+WHERE payment_id IS NOT NULL;
 
 -- Creating Indexes on the booking status and start date
 -- Selecting only necessary colums 
