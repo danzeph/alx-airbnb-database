@@ -41,9 +41,39 @@ SELECT
     total_price,
     status,
     created_at
-FROM booking;
+FROM booking
+
 
 -- Example Test Query: Fetch bookings for a given date range
+-- ( In the partition_performance.md EXPLAIN was used to analyze the performance) 
+
+-- 1. Fetch Bookings by Date Range 
+    
+-- Before 
+SELECT * 
+FROM booking
+WHERE start_date BETWEEN '2025-01-01' AND '2025-06-30';
+
+
+-- After Partitioning 
 SELECT * 
 FROM booking_partitioned
 WHERE start_date BETWEEN '2025-01-01' AND '2025-06-30';
+
+
+-- 2. Find All Confirmed Bookings in 2024
+    
+-- Before 
+SELECT *
+FROM booking
+WHERE status = 'confirmed'
+  AND start_date >= '2024-01-01'
+  AND start_date < '2025-01-01';
+
+
+-- After Partitioning 
+SELECT *
+FROM booking_partitioned
+WHERE status = 'confirmed'
+  AND start_date >= '2024-01-01'
+  AND start_date < '2025-01-01';
