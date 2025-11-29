@@ -1,6 +1,18 @@
 CREATE DATABASE IF NOT EXISTS airbnb;
 USE airbnb;
 
+
+-- =======================
+-- DROP TABLES (Avoid Errors)
+-- =======================
+DROP TABLE IF EXISTS message;
+DROP TABLE IF EXISTS review;
+DROP TABLE IF EXISTS payment;
+DROP TABLE IF EXISTS booking;
+DROP TABLE IF EXISTS property;
+DROP TABLE IF EXISTS users;
+
+
 -- =======================
 -- USER TABLE
 -- =======================
@@ -85,4 +97,5 @@ CREATE TABLE message (
     FOREIGN KEY (sender_id) REFERENCES users(user_id),
     FOREIGN KEY (recipient_id) REFERENCES users(user_id)
 ) AUTO_INCREMENT = 401;
+
 
