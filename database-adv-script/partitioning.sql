@@ -21,9 +21,26 @@ PARTITION BY RANGE (YEAR(start_date)) (
     PARTITION pFuture VALUES LESS THAN MAXVALUE
 );
 
--- Insert existing records from original table
-INSERT INTO booking_partitioned
-SELECT booking_id, user_id, property_id, start_date, end_date, total_amount
+-- Insert existing records from original table (corrected)
+INSERT INTO booking_partitioned (
+    booking_id,
+    property_id,
+    user_id,
+    start_date,
+    end_date,
+    total_price,
+    status,
+    created_at
+)
+SELECT 
+    booking_id,
+    property_id,
+    user_id,
+    start_date,
+    end_date,
+    total_price,
+    status,
+    created_at
 FROM booking;
 
 -- Example Test Query: Fetch bookings for a given date range
